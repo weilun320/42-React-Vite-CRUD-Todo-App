@@ -14,6 +14,7 @@ export default function EditTodo() {
   const [description, setDescription] = useState(currentTodo.description);
   const [completed, setCompleted] = useState(currentTodo.completed);
 
+  // Ensure only the todo author able to edit
   if (currentTodo.userId !== userId) {
     return <Navigate to="/" />;
   }

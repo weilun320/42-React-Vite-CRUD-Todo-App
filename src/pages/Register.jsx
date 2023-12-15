@@ -18,6 +18,7 @@ export default function Register() {
     setError("");
 
     if (username && password && confirmPassword) {
+      // Check if user has existed
       const userExisted = users.filter((user) => {
         return user.username === username;
       });
@@ -25,12 +26,14 @@ export default function Register() {
       if (userExisted.length > 0) {
         setError("User existed. Please try another email.");
       }
+      // Ensure password match confirm password
       else if (password !== confirmPassword) {
         setError("Password must be the same as Confirm Password.");
       }
       else {
         let id = null;
 
+        // Check if it's first user
         if (users.length === 0) {
           id = 1;
           setUsers([{ id, username, password }]);
@@ -40,6 +43,7 @@ export default function Register() {
           setUsers([...users, { id, username, password }]);
         }
 
+        // Set a token to recognize user
         setToken(id);
         navigate("/");
       }

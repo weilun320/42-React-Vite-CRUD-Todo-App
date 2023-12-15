@@ -15,6 +15,7 @@ export default function Login() {
     event.preventDefault();
     setError(false);
 
+    // Ensure email and password matches
     const isValidAccount = users.filter((user) => {
       return user.username === username && user.password === password;
     });
