@@ -47,7 +47,7 @@ function App() {
 
   return (
     <TodoContext.Provider value={{ todos, setTodos, token, setToken, users, setUsers }}>
-      <BrowserRouter>
+      <BrowserRouter basename="/42-React-Vite-CRUD-Todo-App">
         <Routes>
           <Route path="/" element={<Layout token={token} setToken={setToken} />}>
             <Route
